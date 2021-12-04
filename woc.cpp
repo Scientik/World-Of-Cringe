@@ -1,14 +1,18 @@
 #include "TXlib.h"
 void wheels();
 void caterpillar();
+int x = 350;
+int y = 454;
+int r = 33;
 int main()
 {
 
-    int x = 635;
-	int y = 454;
+    int x = 350;
+    int y = 454;
+    int r = 33;
 
 	txCreateWindow(1500,700);
-	txSetFillColor(RGB(0,255,255));
+	txSetFillColor(RGB(255,255,255));
 	txRectangle(0,0,1500,700);
 
 	txSetColor(TX_BLACK,5);
@@ -23,6 +27,15 @@ int main()
 	};
 	txPolygon(gun, 4);
 
+	POINT arsen[4] = {
+	{x - 635 + 986, y - 454 + 220},
+	{x - 635 + 1010, y - 454 + 220},
+	{x - 635 + 1010, y - 454 + 258},
+	{x - 635 + 986, y - 454 + 258}
+	};
+
+	txPolygon(arsen, 4);
+
 	wheels();
 	caterpillar();
 
@@ -31,9 +44,9 @@ int main()
 
 void wheels()
 {
-	int x = 635-157;
-	int y = 454;
-	int r = 33;
+	x = x-157;
+	y = 454;
+	r = 33;
 	txCircle(x,y,r);
 
 	 int number = 0;
@@ -56,9 +69,9 @@ void wheels()
 void caterpillar()
 {
 	txSetFillColor(TX_TRANSPARENT);
-	int x = 635 - 157;
-	int y = 454;
-	int r = 33;
+	x = x - 157;
+	y = 454;
+	r = 33;
 
 	POINT caterpillar[4] =
 	{ {x - (40 + (r - 23)), y - 35},
